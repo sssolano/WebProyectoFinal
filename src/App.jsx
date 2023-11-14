@@ -1,34 +1,37 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//importar modulos de firebase
+import appFirebase from './credenciales'
+import {getAuth, onAuthStateChanged} from 'firebase/auth'
+const auth = getAuth(appFirebase)
+
+
+//importar componentes
+import Login from './components/login'
+import Home from './components/home'
+
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const [usuario, setUsuario]= useState(null)
+  onAuthStateChanged(auth, (usuarioFireBase)=>{
+    if(usuarioFireBase){//si usuario detecta que alguien se logio
+      setUsuario(usuarioFireBase)//en mi variable setUsuario guarda info de usuarioaFireBase, para usar info mas adelante
+    } else 
+    {
+      setUsuario(null)//si no detecta logeo guarda null
+    }
+  })
+//si usuario tiene contenido entonces que use HOME o sea se auntentico de manera correcta si no siga ensenando LOGIN
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div> 
+      {usuario ? <Home correoUsuario = {usuario.email} /> : <Login/>} 
+
+    </div>
+
   )
 }
 
