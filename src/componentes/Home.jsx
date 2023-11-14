@@ -13,10 +13,10 @@ const Home = ({correoUsuario}) => {
       <img src={ImagenLogo} alt="Logo" className="logo-estilo-home" />
       <div>
         
-        <button className="botonMenuPrincipal">Home</button>
-        <button className="botonMenuPrincipal">About Us</button>
-        <button className="botonMenuPrincipal">Contact</button>
-        <button className="btn-primary" onClick={() => signOut(auth)}>LogOut</button>
+        <button className="botonMenuPrincipal">Pedidos</button>
+        <button className="botonMenuPrincipal">Restaurantes</button>
+        <button className="botonMenuPrincipal">Comidas</button>
+        <button className="btn-primary" onClick={() => signOut(auth)}>Salir de la sesión</button>
       </div>
     </div>
   )

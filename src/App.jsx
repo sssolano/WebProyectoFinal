@@ -8,8 +8,8 @@ const auth = getAuth(appFirebase)
 
 
 //importar componentes
-import Login from './components/login'
-import Home from './components/home'
+import Login from './componentes/Login'
+import Home from './componentes/Home'
 
 
 import './App.css'
