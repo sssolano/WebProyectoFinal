@@ -1,17 +1,19 @@
+
+
 .padre {
   
   height: 500px;
   width: 600px;
-  margin-left: 150px;
+  margin-left: -100px;
   margin-bottom: 20px;
 
 }
 
 .tamaño-imagen{
-  width: 900px;
-  height: 600px;
+  width: 700px;
+  height: 500px;
   margin-top: 100px;
-  margin-left: 900px;
+  margin-left: 550px;
   margin-top: -500px;
 }
 
@@ -84,7 +86,7 @@
   width: 450px;
   height: 100px;
   margin-bottom: 100px;
-  margin-left: 770px;
+  margin-left: 300px;
   margin-top: -10px;
 }
 
