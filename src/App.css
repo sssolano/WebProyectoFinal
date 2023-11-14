@@ -1,42 +1,146 @@
-#root {
-  max-width: 1280px;
+.padre {
+  
+  height: 500px;
+  width: 600px;
+  margin-left: 150px;
+  margin-bottom: 20px;
+
+}
+
+.tamaño-imagen{
+  width: 900px;
+  height: 600px;
+  margin-top: 100px;
+  margin-left: 900px;
+  margin-top: -500px;
+}
+
+.perfil-estilo{
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
   margin: 0 auto;
-  padding: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+
+.input{
+  background-color: #9de09f40;
+  border-color: rgb(165, 213, 159);
+  border-radius: 30px;
+  width: 100%;
+  padding: 20px;
+  border-width: 0px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.input:focus{
+  outline: 6px solid #15931540;
+  box-shadow: 0 0 60px #69e96b40;
+}
+
+.boton{
+  background-color: #17cc1740;
+  border-color: #0a390a40;
+  border-radius: 30px;
+  width: 100%;
+  padding: 10px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+
+.comentarioINICIORESGISTRO{
+  font-size: 20px;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 5px;
+  text-align:center;
+
+}
+
+.botonCambiante{
+  background-color: darkgreen;
+  border-radius:  30px;
+  padding: 8px;
+  border-width: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.home{
+  font-size: 50px;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 5px;
+  align-content: center;
+}
+
+.logo-estilo{
+  width: 450px;
+  height: 100px;
+  margin-bottom: 100px;
+  margin-left: 770px;
+  margin-top: -10px;
+}
+
+.home-top {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1000; 
+  height: 120px; 
+  width: 100%; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-estilo-home {
+  height: 80px; 
+  width: auto;
+}
+
+.btn-primary {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 30px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px; 
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.btn-primary:hover {
+  background-color: #45a049; 
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.botonMenuPrincipal {
+  background-color: white;
+  border-color: #4CAF50;
+  color: black;
+  padding: 20px 40px;
+  margin: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.botonMenuPrincipal:hover {
+  background-color: #221f53; /* Color ligeramente diferente para el hover */
+  color: white;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
