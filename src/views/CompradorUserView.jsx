@@ -22,4 +22,4 @@ function CompradorUserView() {
   )
 }
 
-export { CompradorUserView };
+export default CompradorUserView;

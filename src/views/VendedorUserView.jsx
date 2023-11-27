@@ -8,13 +8,13 @@ const auth = getAuth(appFirebase)
 function VendedorUserView() {
   return (
     <div>Vendedor
-        <div className="home-top">
+    <div className="home-top">
       <img src={ImagenLogo} alt="Logo" className="logo-estilo-home" />
       <div>
         
+        <button className="botonMenuPrincipal">Mi Restaurante</button>
         <button className="botonMenuPrincipal">Pedidos</button>
-        <button className="botonMenuPrincipal">Restaurantes</button>
-        <button className="botonMenuPrincipal">Comidas</button>
+        <button className="botonMenuPrincipal">Mi menu</button>
         <button className="btn-primary" onClick={() => signOut(auth)}>Salir de la sesión</button>
       </div>
     </div>

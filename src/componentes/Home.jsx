@@ -3,8 +3,8 @@
 import React from 'react'
 import appFirebase from '../credenciales';
 import {getAuth} from 'firebase/auth';
-import { CompradorUserView } from './CompradorUserView';
-import VendedorUserView from './VendedorUserView';
+import CompradorUserView from '../views/CompradorUserView';
+import VendedorUserView from '../views/VendedorUserView';
 const auth = getAuth(appFirebase)
 
 const Home = ({usuario}) => {
