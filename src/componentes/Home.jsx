@@ -2,24 +2,17 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import appFirebase from '../credenciales';
-import {getAuth, signOut} from 'firebase/auth';
-import ImagenLogo from '../assets/deliverrah-logo.png'
+import {getAuth} from 'firebase/auth';
+import CompradorUserView from '../views/CompradorUserView';
+import VendedorUserView from '../views/VendedorUserView';
 const auth = getAuth(appFirebase)
 
-const Home = ({correoUsuario}) => {
+const Home = ({usuario}) => {
   return (
-    
-    <div className="home-top">
-      <img src={ImagenLogo} alt="Logo" className="logo-estilo-home" />
-      <div>
-        
-        <button className="botonMenuPrincipal">Pedidos</button>
-        <button className="botonMenuPrincipal">Restaurantes</button>
-        <button className="botonMenuPrincipal">Comidas</button>
-        <button className="btn-primary" onClick={() => signOut(auth)}>Salir de la sesión</button>
-      </div>
-    </div>
+    <div>
+      {usuario.rol === "vendedor" ? <VendedorUserView/> :  <CompradorUserView/>}
+  </div>
   )
 }
 
-export default Home
+export default Home;
