@@ -4,6 +4,10 @@ import { onFindAll } from '../config/conexiones'
 import '../App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import appFirebase from '../credenciales';
+import {getAuth, signOut} from 'firebase/auth';
+const auth = getAuth(appFirebase)
+
 function CatalogoNegocios() {
   const [negocios, setNegocios] = useState([]);
 
@@ -28,6 +32,8 @@ function CatalogoNegocios() {
           <div className="title">
             <span>Negocios disponibles</span>
           </div>
+          <button className="btn-primary" onClick={() => signOut(auth)}>Salir de la sesión</button>
+
           {/* Aquí inicia la plantilla para el negocio */}
           {negocios.map((negocio) => 
           ( 
@@ -101,6 +107,7 @@ function CatalogoNegocios() {
         </div>
       </div>
     </div>
+
   );
 }
 export default CatalogoNegocios;
