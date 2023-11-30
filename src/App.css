@@ -1,13 +1,8 @@
 
 
-.padre {
-  
-  height: 500px;
-  width: 600px;
-  margin-left: -100px;
-  margin-bottom: 20px;
 
-}
+
+
 
 .tamaño-imagen{
   width: 700px;
@@ -17,62 +12,6 @@
   margin-top: -500px;
 }
 
-.perfil-estilo{
-  border-radius: 50%;
-  height: 120px;
-  width: 120px;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-}
-
-
-.input{
-  background-color: #9de09f40;
-  border-color: rgb(165, 213, 159);
-  border-radius: 30px;
-  width: 100%;
-  padding: 20px;
-  border-width: 0px;
-  margin-bottom: 10px;
-  color: black;
-}
-
-.input:focus{
-  outline: 6px solid #15931540;
-  box-shadow: 0 0 60px #69e96b40;
-}
-
-.boton{
-  background-color: #17cc1740;
-  border-color: #0a390a40;
-  border-radius: 30px;
-  width: 100%;
-  padding: 10px;
-  border-width: 0px;
-  margin-bottom: 20px;
-  color: black;
-}
-
-
-.comentarioINICIORESGISTRO{
-  font-size: 20px;
-  color: black;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 5px;
-  text-align:center;
-
-}
-
-.botonCambiante{
-  background-color: darkgreen;
-  border-radius:  30px;
-  padding: 8px;
-  border-width: 8px;
-  color: white;
-  font-size: 16px;
-}
 
 .home{
   font-size: 50px;
