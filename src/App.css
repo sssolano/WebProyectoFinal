@@ -101,6 +101,8 @@
   font-size: 140%;
 }
 
+/********************************** Estilos de pagina vendedor **********************************/
+
 body{margin-top:20px;
   background:#F5F5F5;
   }
@@ -473,6 +475,8 @@ body{margin-top:20px;
   }
   .widget .widget-content {
       margin-top: 10px;
+/********************************** FIN DE LA ESTILOS PAGINA VENDEDOR **********************************/
+
   }
 /*Estos estilos son para el catálogo*/
 
