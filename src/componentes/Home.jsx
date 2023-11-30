@@ -7,10 +7,12 @@ import CompradorUserView from '../views/CompradorUserView';
 import VendedorUserView from '../views/VendedorUserView';
 const auth = getAuth(appFirebase)
 
+import PaginaVendedor from './PaginaVendedor';
+
 const Home = ({usuario}) => {
   return (
     <div>
-      {usuario.rol === "vendedor" ? <VendedorUserView/> :  <CompradorUserView/>}
+      {usuario.rol === "vendedor" ? <CompradorUserView/> :  <PaginaVendedor/>}
   </div>
   )
 }
