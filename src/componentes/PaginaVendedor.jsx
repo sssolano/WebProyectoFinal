@@ -1,4 +1,4 @@
-import '/Users/ssola/Documents/GitHub/WebProyectoFinal/src/App.css';
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import appFirebase from '../credenciales';

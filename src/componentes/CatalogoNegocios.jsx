@@ -44,6 +44,7 @@ function CatalogoNegocios() {
                     <img
                       alt="Product"
                       src={ negocio.data().Imagen}
+                      object-fit="cover"
                     />
                   </a>
                   <div className="tags">
