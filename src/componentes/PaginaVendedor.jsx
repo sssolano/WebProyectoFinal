@@ -87,18 +87,8 @@ function PaginaVendedor () {
             </div>
             <div className="col-lg-6">
               <div className="mb-3">
-                <label className="form-label">Tipo de Comida</label>
-                <select className="select2 form-control select2-hidden-accessible"  data-select2-id="select2-data-4-680y" tabIndex="-1" aria-hidden="true">
-                  <option data-select2-id="select2-data-6-cshs"></option>
-                  <option value="AL">Comida Mexicana</option>
-                  <option value="CA">Hamburguesas</option>
-                  <option value="DE">Pollo Frito</option>
-                  <option value="FL">Postres</option>
-                  <option value="GA">Cafetería</option>
-                  <option value="HI">Pizza</option>
-                  <option value="ID">Saludable</option>
-                  <option value="KS">Comida Asiática</option>
-                </select><span className="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-5-np4c" style={{/*width: 391px;*/}}><span className="selection"><span className="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabIndex="0" aria-disabled="false" aria-labelledby="select2-2fn7-container" aria-controls="select2-2fn7-container"><span className="select2-selection__rendered" id="select2-2fn7-container" role="textbox" aria-readonly="true" ><span className="select2-selection__placeholder"></span></span><span className="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span className="dropdown-wrapper" aria-hidden="true"></span></span>
+                <label className="form-label">Tipo de Negocio</label>
+                <input type="text" className="form-control"/>
               </div>
             </div>
           </div>
@@ -145,6 +135,17 @@ function PaginaVendedor () {
         <div className="card-body">
           <h3 className="h6">Distrito</h3>
           <input type="text" className="form-control"/>
+        </div>
+      </div>
+
+      <div className="card mb-4">
+        <div className="card-body">
+          <h3 className="h6">Tag</h3>
+          <select className="form-select">
+            <option value="draft" selected="">Tag01</option>
+            <option value="active">Tag02</option>
+            <option value="active">Tag03</option>
+          </select>
         </div>
       </div>
 
