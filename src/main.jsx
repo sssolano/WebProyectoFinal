@@ -5,9 +5,10 @@ import './index.css'
 import AcercaDe from './componentes/AcercaDe.jsx'
 import PerfilComprador from './componentes/PerfilComprador.jsx'
 import CatalogoNegocios from './componentes/CatalogoNegocios.jsx'
+import ParaPruebas from './componentes/ParaPruebas.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CatalogoNegocios />
+    <App />
   </React.StrictMode>,
 )
