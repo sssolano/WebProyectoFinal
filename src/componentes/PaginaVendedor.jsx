@@ -1,11 +1,22 @@
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { db } from "../credenciales";
 
 import appFirebase from '../credenciales';
 import {getAuth, signOut} from 'firebase/auth';
 const auth = getAuth(appFirebase)
 
 function PaginaVendedor () {
+
+  const [marketName, setMarketName] = useState('');
+
+  const addMarket = async () => {
+    if (marketName.trim() !== '') {
+      await db.collection('markets').add({ name: marketName });
+      setMarketName('');
+    }
+  };
   
 	return (
         <div className=" my-4">
@@ -36,8 +47,8 @@ function PaginaVendedor () {
           <div className="row">
             <div className="col-lg-6">
               <div className="mb-3">
-                <label className="form-label">Nombre</label>
-                <input type="text" className="form-control"/>
+              <label className="form-label">Nombre</label>
+                <input type="text" className="form-control"  value={marketName} onChange={(e) => setMarketName(e.target.value)} />
               </div>
             </div>
           </div>
@@ -45,7 +56,7 @@ function PaginaVendedor () {
             <div className="col-lg-6">
               <div className="mb-3">
                 <label className="form-label">Email</label>
-                <input type="email" className="form-control"/>
+                <input type="email" className="form-control" />
               </div>
             </div>
             <div className="col-lg-6">
@@ -148,10 +159,11 @@ function PaginaVendedor () {
           </select>
         </div>
       </div>
-
+{ <button onClick={addMarket}>Agregar Mercado</button> }
     </div>
   </div>
 </div>
+
 
                     </div>
                 </div>

@@ -13,6 +13,7 @@ import Login from './componentes/Login';
 import Home from './componentes/Home';
 import CompradorView from './views/CompradorUserView';
 import VendedorView from './views/VendedorUserView';
+import MarketList from './componentes/ListaMercados';
 
 
 function App () {
