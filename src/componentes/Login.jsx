@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,6 +14,19 @@ import {
 } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 const auth = getAuth(appFirebase);
+
+import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import ImagenMoto from '../assets/deliverrah-moto.png';
+import ImagenPerfil from '../assets/perfil.png';
+import ImagenLogo from '../assets/deliverrah-logo.png';
+import appFirebase from '../credenciales';
+import {getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {getFirestore, doc, setDoc} from "firebase/firestore"
+const auth = getAuth(appFirebase)
+
+
 
 function Login() {
   const firestore = getFirestore(appFirebase);
