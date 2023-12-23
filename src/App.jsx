@@ -14,10 +14,10 @@ import Home from './componentes/Home';
 import CompradorView from './views/CompradorUserView';
 import VendedorView from './views/VendedorUserView';
 
-import MarketList from './componentes/ListaMercados';
 
 
-import {uid} from 'uid'
+
+
 
 
 
