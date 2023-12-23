@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, NavLink} from "react-router-dom";
-import CatalogoNegocios from "./CatalogoNegocios";
-import PerfilComprador from "./PerfilComprador";
 import { PaginaError } from "./PaginaError";
 import AcercaDe from "./AcercaDe";
-import { DetalleProducto } from "./DetalleProducto";
 import appFirebase from '../credenciales';
 import { getAuth, signOut } from "firebase/auth";
+import { ReporteVentas } from "./ReporteVentas";
+import PaginaVendedor from "./PaginaVendedor";
 const auth = getAuth(appFirebase)
 
-function NavBar() {
+function NavBarVendedor() {
     return (
         <>
             <div className="container">
@@ -16,12 +15,11 @@ function NavBar() {
                     <div>
                         <nav className="navbar navbar-expand-lg navbar-light bg-light">
                             <ul className="navbar-nav mr-auto">
-                                
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/catalogonegocios" active-ClassName='active'>Catálogo de Negocios</NavLink>
+                                    <NavLink className="nav-link" to="/paginavendedor" active-ClassName='active'>Perfil</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/perfilcomprador" active-ClassName='active'>Perfil</NavLink>
+                                    <NavLink className="nav-link" to="/reporteventas" active-ClassName='active'>Reporte de ventas</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/acercade" active-ClassName='active'>Acerca de</NavLink>
@@ -33,11 +31,10 @@ function NavBar() {
                         </nav>
                     </div>
                     <Routes>
-                        <Route exact path="/" Component={CatalogoNegocios} />
-                        <Route path="/home" Component={CatalogoNegocios} />
-                        <Route path="/catalogonegocios" Component={CatalogoNegocios} />
-                        <Route path="/perfilcomprador" Component={PerfilComprador} />
-                        <Route path="/detalleproducto" Component={DetalleProducto} />
+                        <Route exact path="/" Component={PaginaVendedor} />
+                        <Route path="/home" Component={PaginaVendedor} />
+                        <Route path="/paginavendedor" Component={PaginaVendedor} />
+                        <Route path="/reporteventas" Component={ReporteVentas} />
                         <Route path="/acercade" Component={AcercaDe} />
                         <Route path="*" Component={PaginaError} />
                         
@@ -48,4 +45,4 @@ function NavBar() {
     );
 }
  
-export default NavBar;
+export default NavBarVendedor;

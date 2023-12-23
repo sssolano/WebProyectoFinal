@@ -16,7 +16,6 @@ import VendedorView from './views/VendedorUserView';
 import MarketList from './componentes/ListMarket';
 import {uid} from 'uid'
 
-
 function App () {
   const [usuario, setUsuario]= useState(null);
 
@@ -53,11 +52,13 @@ function App () {
 
 
   return (
+    <>
+    
     <div> 
       {usuario ? <Home usuario = {usuario} /> : <Login/>} 
 
     </div>
-
+    </>
   )
 }
 
