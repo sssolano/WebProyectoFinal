@@ -20,6 +20,7 @@ import VendedorView from './views/VendedorUserView';
 
 
 
+
 function App () {
   const [usuario, setUsuario]= useState(null);
 
@@ -56,13 +57,11 @@ function App () {
 
 
   return (
-    <>
-    
     <div> 
       {usuario ? <Home usuario = {usuario} /> : <Login/>} 
 
     </div>
-    </>
+
   )
 }
 

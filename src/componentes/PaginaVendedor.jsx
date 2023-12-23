@@ -1,4 +1,3 @@
-
 import  { useEffect, useState } from 'react';
 import { onDelete, onFindAll, onFindById, onInsert, onUpdate } from '../config/conexiones';
 import swal from 'sweetalert';
@@ -22,130 +21,103 @@ const PaginaVendedor = () => {
     imagen: '',
     tag: '',
   };
-}
 
-import "../App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+  const [values, setValues] = useState(initialValues);
+  const [contactos, setNegocios] = useState([]);
+  const [currentId, setCurrentId] = useState('');
 
-import appFirebase from "../credenciales";
-import { getAuth, signOut } from "firebase/auth";
-const auth = getAuth(appFirebase);
+  useEffect(() => {
+    onGetNegocios();
+  }, []);
 
-function PaginaVendedor() {
+  const handleInputChange = ({ target }) => {
+    const { name, value } = target;
+    setValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
+  const onGetNegocios = async () => {
+    try {
+      const lstContactos = await onFindAll('contactos');
+      setNegocios(lstContactos.docs);
+    } catch (error) {
+      console.error('Error al obtener contactos:', error);
+    }
+  };
+
+  const onSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      if (currentId === '') {
+        await onInsert('contactos', values);
+        swal('Registro ingresado correctamente.', { icon: 'success' });
+      } else {
+        await onUpdate('contactos', currentId, values);
+        swal('Registro modificado correctamente.', { icon: 'success' });
+      }
+    } catch (error) {
+      swal('Error', 'Error: ' + error.message, 'error');
+    }
+    onGetNegocios();
+    limpiar();
+  };
+
+  const onDeleteContacto = ({ target }) => {
+    swal({
+      title: '¿Desea eliminar el registro?',
+      text: '',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        try {
+          await onDelete('contactos', target.dataset.id);
+          onGetNegocios();
+          swal('Registro eliminado correctamente.', { icon: 'success' });
+        } catch (error) {
+          console.error('Error al eliminar contacto:', error);
+          swal('Error', 'Error al eliminar el registro.', 'error');
+        }
+      }
+    });
+  };
+
+  const onCargarContacto = async ({ target }) => {
+    try {
+      const docSeleccionado = await onFindById('contactos', target.dataset.id);
+      setValues({ ...docSeleccionado });
+      setCurrentId(target.dataset.id);
+    } catch (error) {
+      console.error('Error al cargar contacto:', error);
+      swal('Error', 'Error al cargar el registro.', 'error');
+    }
+  };
+
+  const limpiar = () => {
+    setValues({ ...initialValues });
+    setCurrentId('');
+  };
+
   return (
- 
-    <div className="row">
-    <form onSubmit={handleSubmit}>
-    <h2 className='mt-2'>Creación de Negocio</h2><hr />
-  <div className="col-lg-8">
-    <div className="card mb-4">
-      <div className="card-body">
-
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Nombre</label>
-        <input type="text" name="nombre" value={nombre} onChange={handleInputChange} placeholder='Nombre' className='form-control mb-1' />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Correo</label>
-        <input type="text" name="correo" value={correo} onChange={handleInputChange} placeholder='correo' className='form-control mb-1' />
-            </div>
-          </div>
-        </div>
-
- <div className="row">
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Numero de Teléfono</label>
-        <input type="text" name="numtelefono" value={numtelefono} onChange={handleInputChange} placeholder='telefono' className='form-control mb-1' />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Dirección 1</label>
-              <input type="text" name="direccion1" value={direccion1} onChange={handleInputChange} placeholder='direccion1' className='form-control mb-1'/>
-            </div>
-          </div>
-        </div>
-<div className="row">
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Dirección 2</label>
-             <input type="text" name="direccion2" value={direccion2} onChange={handleInputChange} placeholder='direccion2' className='form-control mb-1'/>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Tipo de Negocio</label>
-         <input type="text" name="tiponegocio" value={tiponegocio} onChange={handleInputChange} placeholder='tiponegocio' className='form-control mb-1' />
-            </div>
-          </div>
-        </div>
- <div className="row">
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Codigo Postal</label>
-     <input type="text" name="codigopostal" value={codigopostal} onChange={handleInputChange} placeholder='codigo postal' className='form-control mb-1' />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Servicio</label>
-              <input type="text" name="servicio" value={servicio} onChange={handleInputChange} placeholder='servicio' className='form-control mb-1' />
-            </div>
-          </div>
-        </div>
-<div className="row">
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Cantón</label>
-              <input type="text" name="canton" value={canton} onChange={handleInputChange} placeholder='canton' className='form-control mb-1' />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Distrito</label>
-              <input type="text" name="distrito" value={distrito} onChange={handleInputChange} placeholder='distrito' className='form-control mb-1' />
-            </div>
-          </div>
-        </div>
-
- <div className="row">
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Provincia</label>
-              <input type="text" name="provincia" value={provincia} onChange={handleInputChange} placeholder='provincia' className='form-control mb-1' />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Imagen del Negocio</label>
-              <input type="text" name="imagen" value={imagen} onChange={handleInputChange} placeholder='imagen' className='form-control mb-1' />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="mb-3">
-              <label className="form-label">Tag</label>
-               <input type="text" name="tag" value={tag} onChange={handleInputChange} placeholder='tag01' className='form-control mb-1' />
-               <input type="text" name="tag" value={tag} onChange={handleInputChange} placeholder='tag02' className='form-control mb-1' />
-               <input type="text" name="tag" value={tag} onChange={handleInputChange} placeholder='tag03' className='form-control mb-1' />
-            </div>
-          </div>
-        </div>
-
-<button className='btn btn-primary'>{currentId === '' ? 'Guardar' : 'Modificar'}</button>
-<button type='button' className='btn btn-success mx-1' onClick={limpiar}>Limpiar</button>
-
+    <div className="container">
+      <div className="row">
+        <Formulario
+          values={values}
+          handleInputChange={handleInputChange}
+          onSubmit={onSubmit}
+          limpiar={limpiar}
+          currentId={currentId}
+        />
+        <ListaContactos
+          contactos={contactos}
+          onCargarContacto={onCargarContacto}
+          onDeleteContacto={onDeleteContacto}
+        />
       </div>
     </div>
-    </div>
-    </form> 
-    </div>
-  );
 
-};
+     );
+
+  }
 
 export default PaginaVendedor;

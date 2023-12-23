@@ -3,16 +3,15 @@ import React, { useEffect, useState } from "react";
 import { onFindAll } from "../config/conexiones";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
 
-
+import appFirebase from "../credenciales";
+import { getAuth, signOut } from "firebase/auth";
+const auth = getAuth(appFirebase);
 
 function CatalogoNegocios() {
   const [negocios, setNegocios] = useState([]);
   const [filtro, setFiltro] = useState("");
   const [filtroSeleccionado, setFiltroSeleccionado] = useState("Nombre");
-  const navigate = useNavigate();
-  const goToDetalleProducto = () => {navigate('/detalleproducto')}
 
   useEffect(() => {
     onGetNegocios();
@@ -60,12 +59,11 @@ function CatalogoNegocios() {
       <div className="container bootdey">
         <div className="row justify-content-center product-grid-style">
           <div className="title">
-            <h1>Negocios disponibles</h1>
+            <span>Negocios disponibles</span>
           </div>
-          
-          {/* <button className="btn-primary" onClick={() => signOut(auth)}>
+          <button className="btn-primary" onClick={() => signOut(auth)}>
             Salir de la sesión
-          </button> */}
+          </button>
           <div>
             <select
               value={filtroSeleccionado}
@@ -93,14 +91,9 @@ function CatalogoNegocios() {
             >
               <div className="box-product">
                 <div className="img-wrapper">
-                  <div>
-                    <img alt="Product" src={negocio.data().Imagen} onClick={goToDetalleProducto} />
-
-                  </div>
-
-                  {/* <a href="detail.html">
+                  <a href="detail.html">
                     <img alt="Product" src={negocio.data().Imagen} />
-                  </a> */}
+                  </a>
                   <div className="tags">
                     <span className="label-tags">
                       <span className="label label-danger">

@@ -11,14 +11,12 @@ const auth = getAuth(appFirebase)
 
 import PaginaVendedor from './PaginaVendedor';
 import CatalogoNegocios from './CatalogoNegocios';
-import NavBar from './NavBar';
-import NavBarVendedor from './NavBarVendedor';
 
 const Home = ({usuario}) => {
   return (
     <div>
-      {usuario.rol === "vendedor" ? <NavBarVendedor/> :  <NavBar/>}
-    </div>
+      {usuario.rol === "vendedor" ? <PaginaVendedor/> :  <CatalogoNegocios/>}
+  </div>
   )
 }
 
