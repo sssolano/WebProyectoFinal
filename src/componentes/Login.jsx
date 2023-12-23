@@ -11,8 +11,6 @@ import {getFirestore, doc, setDoc} from "firebase/firestore"
 const auth = getAuth(appFirebase)
 
 
-
-
 function Login() {
 
 const firestore = getFirestore(appFirebase)
