@@ -19,4 +19,4 @@ const firebaseConfig = {
 const appFirebase = initializeApp(firebaseConfig);
 export const db = getFirestore();
 export default appFirebase;
-export const storage = getStorage(appFirebase);
+export const imageDb = getStorage(appFirebase)
