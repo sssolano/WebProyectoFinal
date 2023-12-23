@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import appFirebase from '../credenciales';
 import {getAuth} from 'firebase/auth';
 
@@ -15,8 +15,13 @@ import CatalogoNegocios from './CatalogoNegocios';
 const Home = ({usuario}) => {
   return (
     <div>
+
       {usuario.rol === "vendedor" ? <PaginaVendedor/> :  <CatalogoNegocios/>}
   </div>
+
+      {usuario.rol === "vendedor" ? <NavBarVendedor /> :  <NavBar/>}
+    </div>
+
   )
 }
 

@@ -58,10 +58,24 @@ function CatalogoNegocios() {
       />
       <div className="container bootdey">
         <div className="row justify-content-center product-grid-style">
+
           <div className="title">
             <span>Negocios disponibles</span>
           </div>
           <button className="btn-primary" onClick={() => signOut(auth)}>
+
+        <div className="row">
+          <div className="col-12 text-center">
+            <div className="section-title mb-4 pb-2">
+              <h4 className="title mb-4">Negocios disponibles</h4>
+              <p className="text-muted para-desc mx-auto mb-0">
+                ¿Qué se te antoja para hoy?
+              </p>
+            </div>
+          </div>
+        </div>
+          
+          {/* <button className="btn-primary" onClick={() => signOut(auth)}>
             Salir de la sesión
           </button>
           <div>

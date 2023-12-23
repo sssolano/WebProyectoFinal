@@ -1,4 +1,5 @@
 
+
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { onFindAll } from "../config/conexiones";
@@ -82,3 +83,4 @@ function CatalogoNegocios() {
 }
                     
 export default CatalogoNegocios;
+
