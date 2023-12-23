@@ -23,6 +23,9 @@
     "swall": "^0.0.2",
     "sweetalert": "^2.1.2",
     "uuid": "^9.0.1"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.10.1",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
